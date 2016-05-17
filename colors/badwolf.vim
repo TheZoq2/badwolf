@@ -41,7 +41,7 @@ if exists("syntax_on")
     syntax reset
 endif
 
-let g:colors_name = "badwolf"
+let colors_name = "badwolf"
 
 if !exists("g:badwolf_html_link_underline") " {{{
     let g:badwolf_html_link_underline = 1
@@ -74,6 +74,7 @@ let s:bwc.deepergravel   = ['35322d', 236]
 let s:bwc.darkgravel     = ['242321', 235]
 let s:bwc.blackgravel    = ['1c1b1a', 233]
 let s:bwc.blackestgravel = ['141413', 232]
+let s:bwc.commentColor = ['141413', 41]
 
 " A color sampled from a highlight in a photo of a glass of Dale's Pale Ale on
 " my desk.
@@ -89,12 +90,6 @@ let s:bwc.taffy = ['ff2c4b', 196]
 let s:bwc.saltwatertaffy = ['8cffba', 121]
 
 " The star of the show comes straight from Made of Code.
-"
-" You should almost never use this.  It should be used for things that denote
-" 'where the user is', which basically consists of:
-"
-" * The cursor
-" * A REPL prompt
 let s:bwc.tardis = ['0a9dff', 39]
 
 " This one's from Mustang, not Florida!
@@ -250,7 +245,7 @@ call s:HL('iCursor', 'coal', 'tardis', 'none')
 call s:HL('Special', 'plain')
 
 " Comments are slightly brighter than folds, to make 'headers' easier to see.
-call s:HL('Comment',        'gravel')
+call s:HL('Comment',        'commentColor')
 call s:HL('Todo',           'snow', 'bg', 'bold')
 call s:HL('SpecialComment', 'snow', 'bg', 'bold')
 
@@ -449,21 +444,14 @@ call s:HL('clojureParen0', 'lightgravel', '', 'none')
 call s:HL('clojureAnonArg', 'snow', '', 'bold')
 
 " }}}
-" Common Lisp {{{
-
-call s:HL('lispFunc',           'lime', '', 'none')
-call s:HL('lispVar',            'orange', '', 'bold')
-call s:HL('lispEscapeSpecial',  'orange', '', 'none')
-
-" }}}
 " CSS {{{
 
 if g:badwolf_css_props_highlight
-    call s:HL('cssColorProp', 'taffy', '', 'none')
-    call s:HL('cssBoxProp', 'taffy', '', 'none')
-    call s:HL('cssTextProp', 'taffy', '', 'none')
-    call s:HL('cssRenderProp', 'taffy', '', 'none')
-    call s:HL('cssGeneratedContentProp', 'taffy', '', 'none')
+    call s:HL('cssColorProp', 'dirtyblonde', '', 'none')
+    call s:HL('cssBoxProp', 'dirtyblonde', '', 'none')
+    call s:HL('cssTextProp', 'dirtyblonde', '', 'none')
+    call s:HL('cssRenderProp', 'dirtyblonde', '', 'none')
+    call s:HL('cssGeneratedContentProp', 'dirtyblonde', '', 'none')
 else
     call s:HL('cssColorProp', 'fg', '', 'none')
     call s:HL('cssBoxProp', 'fg', '', 'none')
@@ -569,13 +557,6 @@ call s:HL('lessVariable', 'lime', '', 'none')
 
 call s:HL('lispyscriptDefMacro', 'lime', '', '')
 call s:HL('lispyscriptRepeat', 'dress', '', 'none')
-
-" }}}
-" REPLs {{{
-" This isn't a specific plugin, but just useful highlight classes for anything
-" that might want to use them.
-
-call s:HL('replPrompt', 'tardis', '', 'bold')
 
 " }}}
 " Mail {{{
